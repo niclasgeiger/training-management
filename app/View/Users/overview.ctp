@@ -25,7 +25,8 @@
 		<th>Stundensatz</th>
 		<th>email-Adresse</th>
 		<th>Aufgabe</th>
-		<th>Bearbeiten</th>		
+		<th>Bearbeiten</th>
+        <th>Löschen</th>
 	</tr>
 	<?php foreach($department['User'] as $user):?>
 	<tr>
@@ -36,26 +37,24 @@
 		<td><?=$user['email'] ?></td>
 		<td>
 		<?php
-			switch($user['role']){
-				case(0):
-					echo "Übungsleiter";
-					break;
-				case(1):
-					echo "Abteilungsleiter";
-					break;
-				case(2):
-					echo "Kassenwart";
-					break;
-			}
-		
-		
+			switch($user['role']) {
+                case(0):
+                    echo "Übungsleiter";
+                    break;
+                case(1):
+                    echo "Abteilungsleiter";
+                    break;
+                case(2):
+                    echo "Kassenwart";
+                    break;
+            }
 		?>
 		</td>
-		<td><?=$this -> Html -> link('Bearbeiten', array('action' => 'edit',$user['id']), array('class' => 'btn btn-default')) ?></td>		 
-	
-	<?php endforeach; ?>
+		<td><?=$this -> Html -> link('Bearbeiten', array('action' => 'edit',$user['id']), array('class' => 'btn btn-default')) ?></td>
+        <td><?=$this -> Html -> link('Löschen', array('action' => 'delete_confirm',$user['id']), array('class' => 'btn btn-danger')) ?></td>
+
+        <?php endforeach; ?>
 	</tr>
-	
 	
 </table>
 </div>

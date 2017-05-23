@@ -115,6 +115,20 @@ class UsersController extends AppController {
 		}
 	}
 
+	public function delete_confirm($id){
+        $user = $this -> User -> findById($id);
+        $this -> set('user', $user['User']);
+    }
+
+	public function delete($id) {
+        if (!$id) {
+            throw new NotFoundException(__('id konnte nicht gefunden werden.'));
+        }
+        $user = $this -> User -> findById($id);
+        $user->delete($user['User']['id']);
+        return $this -> redirect(array('action' => 'overview'));
+    }
+
 	public function edit($id) {
 		if (!$id) {
 			throw new NotFoundException(__('id konnte nicht gefunden werden.'));
