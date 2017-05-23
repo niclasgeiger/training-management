@@ -1,0 +1,9 @@
+.table_detail td { 
+	background-color:#ccc;
+	border-top:1px solid #f2f2f2;
+	height:0px;
+	
+}
+.table-detail_header{
+	background-color:#ddd;
+}
