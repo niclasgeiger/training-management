@@ -21,7 +21,7 @@
                 </table>
             </div>
             <div class="form-group">
-                <?=$this -> Form -> button('Löschen', array( 'action' => 'delete', $user['id']),array('class' => 'btn btn-danger')); ?>
+                <?=$this -> Form -> link('Löschen', array( 'action' => 'delete', $user['id']),array('class' => 'btn btn-danger')); ?>
                 <?=$this -> Html -> link("Abbrechen", array( 'action' => 'overview'), array('class' => 'btn btn-default')); ?>
             </div>
 
