@@ -125,7 +125,7 @@ class UsersController extends AppController {
             throw new NotFoundException(__('id konnte nicht gefunden werden.'));
         }
         $user = $this -> User -> findById($id);
-        $user->delete($user['User']['id']);
+        $this -> User -> delete($user['User']['id']);
         return $this -> redirect(array('action' => 'overview'));
     }
 
